@@ -1,0 +1,11 @@
+{
+  "name": "Peer Tutoring Laravel Demo",
+  "image": "mcr.microsoft.com/devcontainers/php:8.4-bookworm",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Peer Tutoring Hub",
+      "onAutoForward": "notify"
+    }
+  }
+}

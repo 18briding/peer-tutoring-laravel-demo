@@ -90,43 +90,33 @@ an array and database JSON, and the preferred date into a date object.
 7. The controller passes it to the details view.
 8. Blade renders the response.
 
-## Suggested classroom walkthrough
+## Walkthrough
 
-1. Open the request form.
-2. Submit a complete request using today or a future date.
-3. Inspect the confirmation and details page.
-4. Open the request list and select the saved request.
-5. Submit a form with no topics to demonstrate server validation.
-6. Submit a past date to demonstrate a business rule.
-7. Trace the route, controller, model, migration, and view in the editor.
+1. Open the app. You will see the tutoring requests page.
+2. Click **Request a session**.
+3. Choose a course and select today or a future date.
+4. Describe what you need help with using 10–500 characters.
+5. Choose at least one topic and a preferred time.
+6. Click **Request session**.
+7. A confirmation appears with your saved request details.
+8. Click **All requests** to return to the list.
+9. Click a request to view its details again.
 
-The date field permits selecting a past date so the server-side rule can
-be demonstrated.
+### Try the validation
 
-## Validation rules
+- Submit the form without choosing a topic. An error asks you to choose one.
+- Submit a request with a past date. An error asks you to use today or a future date.
+- Enter a description shorter than 10 characters. An error asks for a longer description.
 
-| Field | Rule |
-|---|---|
-| Course | IS 6465, IS 6495, or IS 6570 |
-| Description | 10–500 characters after trimming |
-| Topics | At least one of the three allowed topics, with no duplicates |
-| Preferred time | Morning, Afternoon, or Evening |
-| Preferred date | Valid date of today or later |
-| Form identifier | Must equal `tutoring_request` |
+When a request has an error, the form keeps your entries so you can correct it and submit again.
 
-Date validation follows the application’s America/Denver timezone.
+### Follow the code
 
-## Connections to Lab 4
-
-| Lab 4 concept | Laravel equivalent |
-|---|---|
-| Shared PHP includes | Blade layout |
-| Request form page | Blade form view |
-| Processing PHP page | Controller action |
-| Manual validation checks | Laravel validation rules |
-| Request identifier in a URL | Route parameter and model binding |
-| Database operations | Eloquent model and SQLite migration |
-
+1. Open `routes/web.php` to see which URLs call each controller method.
+2. Open `TutoringRequestController.php` to see how input is checked and requests are handled.
+3. Open `TutoringRequest.php` to see the model used to save and load requests.
+4. Open the migration to see how the database table is created.
+5. Open the Blade files in `resources/views/requests` to see how the pages display the information.
 ## Demo scope
 
 This is a shared classroom application. Everyone using the same running
